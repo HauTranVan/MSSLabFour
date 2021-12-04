@@ -2,6 +2,6 @@
     <string name="app_name">MSS Lab Four</string>
     <string name="student_name">Student Name</string>
     <string name="student_score">Student Score</string>
-    <string name="add_student">Add Student</string>
+    <string name="show_student_list">Show Student List</string>
     <string name="remove_student_list">Remove Student List</string>
 </resources>

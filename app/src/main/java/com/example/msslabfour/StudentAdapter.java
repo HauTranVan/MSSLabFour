@@ -1,5 +1,7 @@
 package com.example.msslabfour;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
-    private List<Student> mListStudent;
+    private Cursor mListStudent;
 
-    public void setData(List<Student> mListStudent) {
+    public void setData(Cursor mListStudent) {
         this.mListStudent = mListStudent;
         notifyDataSetChanged();
     }
@@ -26,21 +26,19 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         return new StudentViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        Student student = mListStudent.get(position);
-        if (student == null) {
-            return;
+        if (mListStudent.moveToPosition(position)) {
+            holder.tvStudentname.setText(mListStudent.getString(mListStudent.getColumnIndexOrThrow(Student.COLUMN_NAME)));
+            holder.tvStudentscore.setText(Double.toString(mListStudent.getDouble(mListStudent.getColumnIndexOrThrow(Student.COLUMN_SCORE))));
         }
-
-        holder.tvStudentname.setText(student.getName());
-        holder.tvStudentscore.setText(Double.toString(student.getScore()));
     }
 
     @Override
     public int getItemCount() {
         if (mListStudent != null) {
-            return mListStudent.size();
+            return mListStudent.getCount();
         }
         return 0;
     }
@@ -55,7 +53,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
             tvStudentname = itemView.findViewById(R.id.tv_name);
             tvStudentscore = itemView.findViewById(R.id.tv_score);
-
         }
     }
 }

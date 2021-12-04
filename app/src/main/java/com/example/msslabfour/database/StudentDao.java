@@ -1,22 +1,22 @@
 package com.example.msslabfour.database;
 
+import android.database.Cursor;
+
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.msslabfour.Student;
 
-import java.util.List;
-
 @Dao
 public interface StudentDao {
 
     @Insert
-    void insertStudent(Student student);
+    long insertStudent(Student student);
 
-    @Query("SELECT * FROM student")
-    List<Student> selectStudentList();
+    @Query("SELECT * FROM " + Student.TABLE_NAME)
+    Cursor selectStudentList();
 
-    @Query("DELETE FROM student")
+    @Query("DELETE FROM " + Student.TABLE_NAME)
     void deleteStudentList();
 }

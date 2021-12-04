@@ -8,36 +8,18 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:hint="@string/student_name"/>
-
-    <EditText
-        android:id="@+id/et_score"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginTop="14dp"
-        android:textSize="16sp"
-        android:hint="@string/student_score"
-        android:inputType="numberDecimal"/>
-
     <Button
-        android:id="@+id/btn_add_student"
+        android:id="@+id/btn_show_student_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
         android:textSize="16sp"
         android:layout_marginTop="20dp"
-        android:text="@string/add_student"
+        android:text="@string/show_student_list"
         android:textColor="@color/white"/>
 
     <Button
-        android:id="@+id/btn_remove_studen_list"
+        android:id="@+id/btn_remove_student_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
